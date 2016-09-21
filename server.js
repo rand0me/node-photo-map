@@ -5,10 +5,10 @@ const path = require('path');
 
 // configuration
 const config = require('./config/environment.json');
-const isRelease = process.argv.length === 3 ?	process.argv[2] === 'release' : undefined;
+const isRelease = process.argv.indexOf('release') !== -1;
 config.publicDirectoryPath = path.join(__dirname, 'public');
 config.server.port = config.server.port || 3000;
-config.isRelease = isRelease === undefined ? config.isRelease : isRelease;
+config.isRelease = isRelease ? config.isRelease : isRelease;
 
 // catberry application
 const catberry = require('catberry');
@@ -43,4 +43,3 @@ app.use(errorhandler());
 http
 	.createServer(app)
 	.listen(config.server.port);
-
