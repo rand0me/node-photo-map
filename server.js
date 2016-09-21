@@ -7,7 +7,8 @@ const path = require('path');
 const config = require('./config/environment.json');
 const isRelease = process.argv.indexOf('release') !== -1;
 config.publicDirectoryPath = path.join(__dirname, 'public');
-config.server.port = config.server.port || 3000;
+config.server.port = process.env.OPENSHIFT_NODEJS_PORT || config.server.port || 3000;
+config.server.ip = process.env.OPENSHIFT_NODEJS_IP || config.server.ip || "0.0.0.0";
 config.isRelease = isRelease ? config.isRelease : isRelease;
 
 // catberry application
@@ -15,7 +16,7 @@ const catberry = require('catberry');
 const cat = catberry.create(config); // the Catberry application object
 cat.events.on('ready', () => {
 	const logger = cat.locator.resolve('logger');
-	logger.info(`Ready to handle incoming requests on port ${config.server.port}`);
+	logger.info(`Ready to handle incoming requests on ${config.server.ip}:${config.server.port}`);
 });
 
 // register Catberry plugins needed on the server
@@ -42,4 +43,4 @@ app.use(errorhandler());
 
 http
 	.createServer(app)
-	.listen(config.server.port);
+	.listen(config.server.port, config.server.ip);
