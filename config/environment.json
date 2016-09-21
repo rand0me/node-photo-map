@@ -1,7 +1,7 @@
 {
 	"title": "Catberry Project",
 	"server": {
-		"port": 3000
+		"port": 8080
 	},
 	"logger": {
 		"level": 0
