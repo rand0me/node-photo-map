@@ -15,7 +15,6 @@
     "catberry-uhr": "^5.0.0",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
-    "pm2": "^2.0.15",
     "serve-static": "^1.10.2"
   },
   "engines": {
@@ -23,7 +22,7 @@
   },
   "scripts": {
     "start": "npm run release",
-    "release": "node ./build.js release & pm2 stop all && pm2 flush && pm2 start ./server.js -i 2 -- release && pm2 logs",
+    "release": "node ./build.js release & node ./server.js release",
     "debug": "node ./build.js & node ./server.js",
     "debug-win": "powershell -Command \"Start-Process -NoNewWindow node ./build.js; Start-Process -NoNewWindow -Wait node ./server.js\""
   }
