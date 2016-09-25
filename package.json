@@ -1,7 +1,7 @@
 {
-  "name": "catberry-project",
+  "name": "photo-map",
   "version": "0.0.0",
-  "description": "Empty project based on Catberry Framework",
+  "description": "Photo Map Project based on Catberry Framework",
   "main": "./server.js",
   "browser": {
     "./config/environment.json": "./config/browser.json"
