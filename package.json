@@ -1,6 +1,6 @@
 {
   "name": "photo-map",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Photo Map Project based on Catberry Framework",
   "main": "./server.js",
   "browser": {
