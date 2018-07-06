@@ -1,5 +1,7 @@
 # Catberry Empty Project
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rand0me/node-photo-map.svg)](https://greenkeeper.io/)
+
 ![Catberry](https://raw.githubusercontent.com/catberry/catberry/master/docs/images/logo.png)
 
 ## How to use
